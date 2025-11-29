@@ -9,8 +9,7 @@ let canales = {
   State: 0,
   Motor: 0,
   Audio: 0,
-  Image: 0,
-  Extra: 0 // field 7
+  Image: 0
 };
 
 // Leer el valor de un canal
@@ -44,6 +43,15 @@ app.post("/canales", (req, res) => {
     }
   }
   res.send("OK");
+});
+
+// Leer varios canales a la vez
+app.get("/canales", (req, res) => {
+  res.json({
+    Battery: canales.Battery,
+    Water: canales.Water,
+    State: canales.State
+  });
 });
 
 // Servidor en puerto 3000
