@@ -35,5 +35,16 @@ app.post("/canal/:nombre", (req, res) => {
   }
 });
 
+// Actualizar varios campos
+app.post("/canales", (req, res) => {
+  const data = req.body; // JSON con varios campos
+  for (const key in data) {
+    if (canales[key] !== undefined) {
+      canales[key] = data[key];
+    }
+  }
+  res.send("OK");
+});
+
 // Servidor en puerto 3000
 app.listen(3000, () => console.log("Servidor activo"));
