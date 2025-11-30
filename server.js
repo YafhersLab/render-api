@@ -48,9 +48,9 @@ app.post("/canales", (req, res) => {
 // Leer varios canales a la vez
 app.get("/canales", (req, res) => {
   res.json({
-    Battery: canales.Battery,
-    Water: canales.Water,
-    State: canales.State
+    Battery: canales.Battery.toString(),
+    Water: canales.Water.toString(),
+    State: canales.State.toString(),
   });
 });
 
