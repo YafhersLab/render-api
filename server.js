@@ -26,7 +26,7 @@ app.post("/canal/:nombre", (req, res) => {
   const nombre = req.params.nombre;
   const valor = req.body.valor;
   if (canales[nombre] !== undefined) {
-    canales[nombre] = valor;
+    canales[nombre] = valor.toString();
     res.send("OK");
   } else {
     res.status(400).send("Canal no existe");
@@ -38,7 +38,7 @@ app.post("/canales", (req, res) => {
   const data = req.body; // JSON con varios campos
   for (const key in data) {
     if (canales[key] !== undefined) {
-      canales[key] = data[key];
+      canales[key] = data[key].toString();;
     }
   }
   res.send("OK");
